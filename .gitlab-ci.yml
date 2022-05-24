@@ -1,5 +1,6 @@
 image: node:16.13.2
 
+
 stages:
   - install
   - code_quality
