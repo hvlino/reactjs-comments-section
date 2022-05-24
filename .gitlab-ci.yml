@@ -1,6 +1,5 @@
 image: node:16.13.2
 
-
 stages:
   - install
   - code_quality
@@ -83,5 +82,6 @@ surge_publish:
       - node_modules/
     policy: pull
   script:
+    - ([ -d build ] && echo "build folder exists" || (npm install && npm run build))
     - npm install surge -g
     - surge --domain https://route66dev-interactive-comments-section.surge.sh --project ./build
