@@ -1,6 +1,10 @@
+globals:
+  JSX: true
+  React: true
 env:
   browser: true
   es2021: true
+  "jest/globals": true
 extends:
   - plugin:react/recommended
   - airbnb
@@ -13,4 +17,19 @@ parserOptions:
 plugins:
   - react
   - '@typescript-eslint'
-rules: {}
+  - jest
+rules:
+  import/extensions:
+    - error
+    - ignorePackages
+    - js: never
+      jsx: never
+      ts: never
+      tsx: never
+  'react/jsx-filename-extension': [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }]
+  no-underscore-dangle: off
+settings:
+  "import/resolver":
+    node:
+      extensions: [".js", ".jsx", ".ts", ".tsx"]
+
