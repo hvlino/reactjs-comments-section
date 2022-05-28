@@ -1,31 +1,33 @@
-/* eslint-disable react/jsx-filename-extension */
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { User } from './models/User';
+import SocialButton from './components/SocialButton';
 
 function App() {
+  const handleSocialLogin = (user: User) => {
+    alert(user._profile.name);
+  };
+
+  const handleSocialLoginFailure = (err: Error) => {
+    console.error(err);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.tsx</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div>
+        <SocialButton
+          provider="facebook"
+          appId="321408663330272"
+          onLoginSuccess={handleSocialLogin}
+          onLoginFailure={handleSocialLoginFailure}
         >
-          Learn React
-        </a>
-      </header>
+          Login with Facebook
+        </SocialButton>
+      </div>
     </div>
   );
 }
 
 export default App;
+
+// _profile:
+
+// profilePicURL: "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=524462816559
