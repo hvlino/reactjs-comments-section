@@ -3,7 +3,7 @@ import { User } from './models/User';
 import SocialButton from './components/SocialButton';
 
 function App() {
-  const handleSocialLogin = (user: User) => user;
+  const handleSocialLogin = (user: User) => user._profile.name;
 
   const handleSocialLoginFailure = (err: Error) => err;
   return (
