@@ -1,23 +1,37 @@
+import React, { useState } from 'react';
 import './App.css';
 import { User } from './models/User';
 import SocialButton from './components/SocialButton';
 
 function App() {
-  const handleSocialLogin = (user: User) => user._profile.name;
+  const [fbUser, setFBUser] = useState('');
+  const [fbPFP, setFBPFP] = useState('');
+
+  const handleSocialLogin = (user: User) => {
+    setFBUser(user._profile.name);
+    setFBPFP(user._profile.profilePicURL);
+  };
 
   const handleSocialLoginFailure = (err: Error) => err;
+
   return (
     <div className="App">
-      <div>
-        <SocialButton
-          provider="facebook"
-          appId="321408663330272"
-          onLoginSuccess={handleSocialLogin}
-          onLoginFailure={handleSocialLoginFailure}
-        >
-          Login with Facebook
-        </SocialButton>
-      </div>
+      { fbUser ? ''
+        : (
+          <div className="loginButton">
+            <SocialButton
+              provider="facebook"
+              appId="321408663330272"
+              onLoginSuccess={handleSocialLogin}
+              onLoginFailure={handleSocialLoginFailure}
+            >
+              Login with Facebook
+            </SocialButton>
+          </div>
+        )}
+
+      <div className="userName">{fbUser}</div>
+      <div className="userPFP">{fbPFP ? <img alt="user_pfp" src={fbPFP} /> : ''}</div>
     </div>
   );
 }
