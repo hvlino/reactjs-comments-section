@@ -8,7 +8,7 @@ function App() {
   };
 
   const handleSocialLoginFailure = (err: Error) => {
-    console.error(err);
+    return err;
   };
   return (
     <div className="App">
