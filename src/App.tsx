@@ -4,7 +4,7 @@ import SocialButton from './components/SocialButton';
 
 function App() {
   const handleSocialLogin = (user: User) => {
-    alert(user._profile.name);
+    return user._profile.name;
   };
 
   const handleSocialLoginFailure = (err: Error) => {
