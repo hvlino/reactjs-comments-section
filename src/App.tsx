@@ -3,13 +3,9 @@ import { User } from './models/User';
 import SocialButton from './components/SocialButton';
 
 function App() {
-  const handleSocialLogin = (user: User) => {
-    alert(user._profile.name);
-  };
+  const handleSocialLogin = (user: User) => user;
 
-  const handleSocialLoginFailure = (err: Error) => {
-    console.error(err);
-  };
+  const handleSocialLoginFailure = (err: Error) => err;
   return (
     <div className="App">
       <div>
