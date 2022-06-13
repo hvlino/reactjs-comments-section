@@ -1,34 +1,16 @@
-import React, { useContext, useEffect } from 'react';
-import './App.scss';
-import { Context, ContextTypes } from './Context';
-// import SocialButton from './components/SocialButton';
-import Comment from './components/Comment/Comment';
-import AddComment from './components/AddComment/AddComment';
+import React from 'react';
+// import { ReactComponent as DeleteButtonSVG } from '../Assets/images/icon-delete.svg';
+// import { ReactComponent as EditButtonSVG } from '../Assets/images/icon-edit.svg';
+import { ReactComponent as ReplyButtonSVG } from '../../Assets/images/icon-reply.svg';
+import AmyRobsonPNG from '../../Assets/avatars/image-amyrobson.png';
+// import { Context } from '../Context';
 
-function App() {
-  const {
-    // username,
-    // handleSocialLogin,
-    // handleSocialLoginFailure,
-    fetchComments,
-    comments,
-    setComments,
-  } = useContext(Context) as ContextTypes;
-
-  useEffect(() => {
-    (async () => {
-      const result = await fetchComments();
-      setComments(result);
-    }
-    )();
-  }, []);
+function Comment() {
+  // const { comment } = useContext(Context);
 
   return (
-    <div className="App">
-      <Comment />
-      <p>{JSON.stringify(comments)}</p>
-      <AddComment />
-      {/* <div className="comment-users-container">
+    <>
+      <div className="comment-users-container">
         <div className="comment">
           <div className="comment-votes-content">
             <div className="comment-button-plus">+</div>
@@ -49,16 +31,16 @@ function App() {
                 </div>
               </div>
             </div>
-              <div className="comment-content">
+            <div className="comment-content">
               I couldn&apos;t agree more with this.
-              Everything moves so fast and it always seems like
-              everyone knows the newest library/framework.
+              Everything moves so fast and it always seems
+              like everyone knows the newest library/framework.
               But the fundamentals are what stay constant.
-              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div className="comment-you-container">
+      {/* <div className="comment-you-container">
         <div className="comment">
           <div className="comment-votes-content">
             <div className="comment-button-plus">+</div>
@@ -84,13 +66,10 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="comment-content">
-            I couldn&apos;t agree more with this.
-            Everything moves so fast and it always
-            seems like everyone knows the newest
-            library/framework. But the fundamentals
-            are what stay constant.
-            </div>
+            <div className="comment-content">I couldn&apos;t agree more with this.
+            Everything moves so fast and it always seems like everyone knows
+            the newest library/framework.
+            But the fundamentals are what stay constant.</div>
           </div>
         </div>
       </div>
@@ -117,20 +96,15 @@ function App() {
             </div>
             <div className="comment-content">
             I couldn&apos;t agree more with this.
-            Everything moves so fast and it always seems
-            like everyone knows the newest library/framework.
-            But the fundamentals are what stay constant.
-            </div>
+            Everything moves so fast and it always seems like everyone
+            knows the newest library/framework.
+            But the fundamentals are what stay constant.</div>
           </div>
         </div>
       </div>
-      */}
-    </div>
+       */}
+    </>
   );
 }
 
-export default App;
-
-// _profile:
-
-// profilePicURL: "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=524462816559
+export default Comment;
