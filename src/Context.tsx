@@ -54,7 +54,11 @@ function Provider({ children }:CommentProps) {
     comments,
     setComments,
     fetchComments,
+<<<<<<< HEAD
   }), [comments]);
+=======
+  }), []);
+>>>>>>> 02ab1c66a062108904602a56d1ecb07e281e2a88
 
   return (
     <Context.Provider value={values}>
